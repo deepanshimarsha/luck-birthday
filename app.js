@@ -13,6 +13,7 @@ function clickHandler(){
         message.innerHTML = "All fields are required"
     }
     else{
+        console.log(sum)
         var sum = calculateSum(dobVal)
         if (sum % Number(luckyNumberVal) === 0){
             message.innerHTML = luckyNumberVal + " is a lucky number!🥳"
@@ -27,8 +28,8 @@ function clickHandler(){
 function calculateSum(date){
     date = date.replaceAll("-", "");
     var sum = 0;
-    for(var idx = 0; idx < dob.length; idx++){
-        sum = sum + Number(dob.charAt(idx));
+    for(let digit of date){
+        sum = sum + Number(digit);
     }
 
     return sum
